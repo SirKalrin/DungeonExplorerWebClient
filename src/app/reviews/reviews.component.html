@@ -1,0 +1,31 @@
+<mrr-toolbar></mrr-toolbar>
+<form>
+  <md-input-container>
+    <input name="nameInput" mdInput placeholder="Name.." [(ngModel)]="newReview.name">
+  </md-input-container>
+  <md-input-container>
+    <input name="descriptionInput" mdInput placeholder="Description.." [(ngModel)]="newReview.description">
+  </md-input-container>
+  <md-input-container>
+    <input name="rateInput" mdInput type="number" placeholder="Rate.." [(ngModel)]="newReview.rate">
+  </md-input-container>
+  <button md-raised-button [color]="'primary'" (click)="SubmitReview()">Submit</button>
+</form>
+
+<md-card *ngFor="let review of reviews">
+  <md-card-title>{{review.name}}</md-card-title>
+  <md-card-content>
+    Rate : {{review.rate}}
+    <fa [name]="'star'" [size]=1></fa>
+    <br/>Description : {{review.description}}
+    <fa [name]="'sticky-note'" [size]=1></fa>
+    <hr/>
+  </md-card-content>
+  <button md-raised-button [color]="'primary'">Edit</button>
+</md-card>
+
+
+
+
+
+
