@@ -30,10 +30,7 @@ export class UsersComponent implements OnInit {
 
   createUser()
   {
-    //dumb
-    this.create.emit();
-    //smart
-    this.router.navigate(['/users/create-user']);
+    this.router.navigate(["/create-user"]);
   }
 
 
@@ -44,7 +41,7 @@ export class UsersComponent implements OnInit {
 
   updateUser(user: User)
   {
-    this.router.navigate(["/users/" + user.$key])
+    this.router.navigate(["/users/" + user.$key]);
   }
 
 

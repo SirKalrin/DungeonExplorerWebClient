@@ -5,7 +5,6 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { UsersComponent } from './users/users.component';
-import { ReviewsComponent } from './reviews/reviews.component';
 import {MaterialModule} from "@angular/material";
 import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome';
 import { ToolbarComponent } from './toolbar/toolbar.component';
@@ -16,20 +15,20 @@ import { LoginComponent } from './auth/login/login.component';
 import { LoginViewComponent } from './auth/login/login-view.component';
 
 import {UsersService} from "./users/users.service";
-import { ReviewService} from "./reviews/review.service";
 import {AuthService} from "./auth/auth.service";
 import { CreateUserComponent } from './users/create-user/create-user.component';
 import { CreateUserViewComponent } from './users/create-user/create-user-view.component';
 import { UpdateUserComponent } from './users/update-user/update-user.component';
 import { UpdateUserViewComponent } from './users/update-user/update-user-view.component';
 import { AngularFireModule, AuthMethods, AuthProviders} from 'angularfire2';
+import { TopicsComponent } from './topics/topics.component';
 
 export const firebaseConfig = {
-  apiKey: "AIzaSyBZTtLluvg1QZTeu8gvvYI0Wuq4YdnEsCY",
-  authDomain: "mrr-rest.firebaseapp.com",
-  databaseURL: "https://mrr-rest.firebaseio.com",
-  storageBucket: "mrr-rest.appspot.com",
-  messagingSenderId: "782483373971"
+  apiKey: "AIzaSyAKbOHrqxYqH6b7yiMV-r01ovUG9J3We80",
+  authDomain: "vr-restapi.firebaseapp.com",
+  databaseURL: "https://vr-restapi.firebaseio.com",
+  storageBucket: "vr-restapi.appspot.com",
+  messagingSenderId: "1071965490238"
 };
 
 export const firebarebaseLoginConfig = {
@@ -38,19 +37,18 @@ export const firebarebaseLoginConfig = {
 }
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: HomeComponent},
   { path: 'login', component: LoginComponent},
-  { path:'reviews', component: ReviewsComponent},
+  { path:'topics', component: TopicsComponent},
   { path: 'users', component: UsersComponent},
   { path: 'create-user', component: CreateUserComponent},
-  { path: 'users/:$key', component: UpdateUserComponent}
+  { path: 'users/:$key', component: UpdateUserComponent},
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     UsersComponent,
-    ReviewsComponent,
     ToolbarComponent,
     HomeComponent,
     LoginComponent,
@@ -59,6 +57,7 @@ const routes: Routes = [
     CreateUserViewComponent,
     UpdateUserComponent,
     UpdateUserViewComponent,
+    TopicsComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,7 +69,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     AngularFireModule.initializeApp(firebaseConfig, firebarebaseLoginConfig)
   ],
-  providers: [UsersService, ReviewService, AuthService],
+  providers: [UsersService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

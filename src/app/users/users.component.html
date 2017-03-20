@@ -1,5 +1,6 @@
 <mrr-toolbar></mrr-toolbar>
 <form>
+  <button md-raised-button  (click)="createUser()" style="background-color: darkgreen; color: white" >Create</button>
 <md-card *ngFor="let user of users | async">
   <h1><fa [name]="'user'" [size]=1></fa>
     {{user.name}}</h1>
